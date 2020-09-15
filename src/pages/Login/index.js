@@ -43,6 +43,7 @@ const Login = () => {
       const { token, user } = response.data;
 
       loginProcedure(token, user);
+      setModalVisible(false);
     } catch (error) {
       setShowError(
         error.response ? error.response.data.message : error.message

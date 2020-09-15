@@ -64,6 +64,10 @@ const SalaPage = () => {
     setSelectedSala(record);
   };
 
+  const redirectToMeeting = (record) => {
+    history.push(`/reuniao?room_id=${record.id}`);
+  };
+
   return (
     <Layout selectedMenuItem="SalaPage">
       <Container>
@@ -82,7 +86,7 @@ const SalaPage = () => {
           />
           <CustomTable
             loadData={getAllSala}
-            columns={SALAS_COLUMNS(deleteSala, handleEdit)}
+            columns={SALAS_COLUMNS(deleteSala, handleEdit, redirectToMeeting)}
             rowKey={"id"}
             onRowClick={(record) => {
               history.push(`/reuniao?room_id=${record.id}`);

@@ -1,10 +1,14 @@
 import React from "react";
 import moment from "moment";
-import { CloseOutlined, EditOutlined } from "@ant-design/icons";
+import {
+  CloseOutlined,
+  EditOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
 
 import CustomButton from "../components/CustomButton";
 
-export const SALAS_COLUMNS = (handleRemove, handleEdit) => [
+export const SALAS_COLUMNS = (handleRemove, handleEdit, handleEntity) => [
   {
     title: "ID",
     dataIndex: "id",
@@ -27,13 +31,17 @@ export const SALAS_COLUMNS = (handleRemove, handleEdit) => [
         <CustomButton
           icon={<CloseOutlined />}
           onClick={() => handleRemove(record)}
+        />
+        <CustomButton
+          icon={<ArrowRightOutlined />}
+          onClick={() => handleEntity(record)}
         />
       </>
     ),
   },
 ];
 
-export const WORKSPACE_COLUMNS = (handleRemove, handleEdit) => [
+export const WORKSPACE_COLUMNS = (handleRemove, handleEdit, handleEntity) => [
   {
     title: "ID",
     dataIndex: "id",
@@ -56,6 +64,10 @@ export const WORKSPACE_COLUMNS = (handleRemove, handleEdit) => [
         <CustomButton
           icon={<CloseOutlined />}
           onClick={() => handleRemove(record)}
+        />
+        <CustomButton
+          icon={<ArrowRightOutlined />}
+          onClick={() => handleEntity(record)}
         />
       </>
     ),

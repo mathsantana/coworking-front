@@ -64,6 +64,10 @@ const WorkspacePage = () => {
     setSelectedWorkspace(record);
   };
 
+  const redirectToWorkspaceUsers = (record) => {
+    history.push(`/workspaces/horario?workspace_id=${record.id}`);
+  };
+
   return (
     <Layout selectedMenuItem="WorkspacePage">
       <Container>
@@ -82,11 +86,12 @@ const WorkspacePage = () => {
           />
           <CustomTable
             loadData={getAllWorkspace}
-            columns={SALAS_COLUMNS(deleteWorkspace, handleEdit)}
+            columns={SALAS_COLUMNS(
+              deleteWorkspace,
+              handleEdit,
+              redirectToWorkspaceUsers
+            )}
             rowKey={"id"}
-            onRowClick={(record) => {
-              history.push(`/workspaces/horario?workspace_id=${record.id}`);
-            }}
           ></CustomTable>
         </StyledCard>
       </Container>
